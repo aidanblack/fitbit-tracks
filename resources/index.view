@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="clock" class="background">
+
+<link id="styleSheet" rel="stylesheet" href="light.css"/>>
+
+<defs>
+  <symbol id="hourTick">
+    <rect x="-5" y="35%" width="10" height="10%" class="marks" />
+  </symbol>
+  <symbol id="minuteTick">
+    <rect x="-2" y="139" width="4" height="3%" class="marks" />
+  </symbol>
+  <symbol id="fiveMinutes">
+    <g transform="rotate(6)">
+      <use href="#minuteTick" />
+      <g transform="rotate(6)"><use href="#minuteTick" /></g>
+      <g transform="rotate(12)"><use href="#minuteTick" /></g>
+      <g transform="rotate(18)"><use href="#minuteTick" /></g>
+    </g>
+  </symbol>
+  <mask id="mask">
+  <arc id="weatherArc" width="100%" height="100%" visibility="visible"
+    arc-width="3%" start-angle="-180" sweep-angle="360" />
+  </mask>
+</defs>
+
+<g transform="translate(168,168)">
+  <!-- <circle cx="0" cy="0" r="50%" fill="silver" /> -->
+  <circle cx="0" cy="0" r="168" fill="#333333" />
+  <arc id="statsArc" x="-168" y="-168" width="336" height="336" fill="#333333"
+    arc-width="3%" start-angle="-150" sweep-angle="300" visibility="hidden" />
+  <svg mask="#mask" x="-168" y="-168" width="100%" height="100%">
+    <gradientRect x="0" y="0" width="100%" height="100%"
+      gradient-type="bilinear"
+      gradient-x1="135" gradient-y1="7"
+      gradient-x2="310" gradient-y2="248"
+      gradient-color1="green"
+      gradient-color2="yellow"
+      gradient-color3="#3366AA"
+      gradient-color4="#DD3333" />
+  </svg>
+  <circle cx="0" cy="0" r="47%" id="clockFace" pointer-events="visible" />
+
+  <text id="dateBox" x="0" y="-16%" fill="gray" text-anchor="middle"
+    font-family="System-Regular" font-size="28">APR 23</text>
+  <rect id="statsBox" x="-10%" y="10%" width="20%" height="20%" fill="gray" opacity="0" pointer-events="visible" />
+  <image id="statsImage" x="-6%" y="14%" width="12%" height="12%" href="battery_36px.png" pointer-events="visible" fill="gray" />
+
+<use href="#hourTick" />
+  <g transform="rotate(30)"><use href="#hourTick" /></g>
+    <g transform="rotate(60)"><use href="#hourTick" /></g>
+    <g transform="rotate(90)"><use href="#hourTick" /></g>
+    <g transform="rotate(120)"><use href="#hourTick" /></g>
+    <g transform="rotate(150)"><use href="#hourTick" /></g>
+    <g transform="rotate(180)"><use href="#hourTick" /></g>
+    <g transform="rotate(210)"><use href="#hourTick" /></g>
+    <g transform="rotate(240)"><use href="#hourTick" /></g>
+    <g transform="rotate(270)"><use href="#hourTick" /></g>
+    <g transform="rotate(300)"><use href="#hourTick" /></g>
+    <g transform="rotate(330)"><use href="#hourTick" /></g>
+
+    <use href="#fiveMinutes" />
+    <g transform="rotate(30)"><use href="#fiveMinutes" /></g>
+    <g transform="rotate(60)"><use href="#fiveMinutes" /></g>
+    <g transform="rotate(90)"><use href="#fiveMinutes" /></g>
+    <g transform="rotate(120)"><use href="#fiveMinutes" /></g>
+    <g transform="rotate(150)"><use href="#fiveMinutes" /></g>
+    <g transform="rotate(180)"><use href="#fiveMinutes" /></g>
+    <g transform="rotate(210)"><use href="#fiveMinutes" /></g>
+    <g transform="rotate(240)"><use href="#fiveMinutes" /></g>
+    <g transform="rotate(270)"><use href="#fiveMinutes" /></g>
+    <g transform="rotate(300)"><use href="#fiveMinutes" /></g>
+    <g transform="rotate(330)"><use href="#fiveMinutes" /></g>
+
+    <g id="hourHand">
+        <!-- <line x1="0" y1="7%" x2="0" y2="-30%" stroke-width="13" /> -->
+        <rect x="-7" y="-30%" width="14" height="38%" class="marks" opacity="0.8" />
+    </g>
+    <g id="minuteHand">
+        <!-- <line x1="0" y1="7%" x2="0" y2="-35%" stroke-width="10" /> -->
+        <rect x="-5" y="-40%" width="10" height="48%" class="marks" opacity="0.8" />
+    </g>
+    <g id="secondHand">
+        <!-- <line x1="0" y1="10%" x2="0" y2="-32%" stroke-width="2" id="secondLine" /> -->
+        <rect x="-2" y="-31%" width="4" height="46%" fill="#CC0000" opacity="0.8" />
+        <circle cx="0" cy="-34%" r="3%" fill="#CC0000" opacity="0.8" />
+    </g>
+    <circle cx="0" cy="0" r="5" fill="#CC0000" />
+
+</g>
+</svg>
