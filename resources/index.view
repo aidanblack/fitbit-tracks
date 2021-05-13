@@ -4,10 +4,10 @@
 
 <defs>
   <symbol id="hourTick">
-    <rect x="-5" y="35%" width="10" height="10%" class="marks" />
+    <rect x="-5" y="33%" width="8" height="11%" class="marks" />
   </symbol>
   <symbol id="minuteTick">
-    <rect x="-2" y="139" width="4" height="3%" class="marks" />
+    <rect x="-1" y="132" width="2" height="4%" class="marks aod" />
   </symbol>
   <symbol id="fiveMinutes">
     <g transform="rotate(6)">
@@ -18,31 +18,38 @@
     </g>
   </symbol>
   <mask id="mask">
-  <arc id="weatherArc" width="100%" height="100%" visibility="visible"
-    arc-width="3%" start-angle="-180" sweep-angle="360" />
+  <arc id="weatherArc" width="330" height="330" visibility="visible"
+    arc-width="5" start-angle="-180" sweep-angle="360" />
   </mask>
 </defs>
 
 <g transform="translate(168,168)">
   <!-- <circle cx="0" cy="0" r="50%" fill="silver" /> -->
-  <circle cx="0" cy="0" r="168" fill="#333333" />
-  <arc id="statsArc" x="-168" y="-168" width="336" height="336" fill="#333333"
-    arc-width="3%" start-angle="-150" sweep-angle="300" visibility="hidden" />
-  <svg mask="#mask" x="-168" y="-168" width="100%" height="100%">
+  <arc class="aod" x="-168" y="-168" width="334" height="334"  fill="#999999"
+    arc-width="10" start-angle="0" sweep-angle="360"/>
+    <arc class="aod" x="-164" y="-164" width="332" height="332"  fill="#777777"
+    arc-width="7" start-angle="0" sweep-angle="360"/>
+  <arc id="statsArc" x="-165" y="-165" width="330" height="330" fill="#333333"
+    arc-width="5" start-angle="-150" sweep-angle="300" visibility="hidden" />
+  <svg mask="#mask" x="-165" y="-165" width="330" height="330">
     <gradientRect x="0" y="0" width="100%" height="100%"
       gradient-type="bilinear"
       gradient-x1="135" gradient-y1="7"
       gradient-x2="310" gradient-y2="248"
-      gradient-color1="green"
+      gradient-color1="#55c055"
       gradient-color2="yellow"
-      gradient-color3="#3366AA"
-      gradient-color4="#DD3333" />
+      gradient-color3="#316ab4"
+      gradient-color4="#dd5151" />
   </svg>
-  <circle cx="0" cy="0" r="47%" id="clockFace" pointer-events="visible" />
+  <circle class="aod" cx="0" cy="0" r="47%" id="clockFace" pointer-events="visible" />
 
-  <text id="dateBox" x="0" y="-16%" fill="gray" text-anchor="middle"
+  <text id="dateBox" x="0" y="-15%" fill="gray" text-anchor="middle"
     font-family="System-Regular" font-size="28">APR 23</text>
-  <rect id="statsBox" x="-10%" y="10%" width="20%" height="20%" fill="gray" opacity="0" pointer-events="visible" />
+    <arc class="aod" x="-10%" y="10%" width="20%" height="20%" fill="#999999"
+      arc-width="3" start-angle="0" sweep-angle="360" />
+    <arc class="aod" x="-10% + 1" y="10% + 1" width="20% - 2" height="20% - 2" fill="#666666"
+      arc-width="2" start-angle="0" sweep-angle="360" />
+    <circle id="statsBox" class="aod" cx="0" cy="20%" r="9% - 1" fill="#999999" opacity="0.05" pointer-events="visible" />
   <image id="statsImage" x="-6%" y="14%" width="12%" height="12%" href="battery_36px.png" pointer-events="visible" fill="gray" />
 
 <use href="#hourTick" />
@@ -71,20 +78,33 @@
     <g transform="rotate(300)"><use href="#fiveMinutes" /></g>
     <g transform="rotate(330)"><use href="#fiveMinutes" /></g>
 
+    <g id="hourHandShadow" transform="translate(8,8)">
+        <!-- <line x1="0" y1="7%" x2="0" y2="-30%" stroke-width="13" /> -->
+        <rect x="-6" y="-28%" width="14" height="36%" class="aod" fill="black" opacity="0.1" />
+    </g>
+    <g id="minuteHandShadow" transform="translate(8,8)">
+        <!-- <line x1="0" y1="7%" x2="0" y2="-35%" stroke-width="10" /> -->
+        <rect x="-5" y="-37%" width="10" height="45%" class="aod" fill="black" opacity="0.1" />
+    </g>
+    <g id="secondHandShadow" transform="translate(8,8)">
+        <!-- <line x1="0" y1="10%" x2="0" y2="-32%" stroke-width="2" id="secondLine" /> -->
+        <rect class="aod" x="-2" y="-30%" width="5" height="41% + 2" fill="black" opacity="0.1" />
+        <circle class="aod" cx="0" cy="-33%" r="10" fill="black" opacity="0.1" />
+    </g>
     <g id="hourHand">
         <!-- <line x1="0" y1="7%" x2="0" y2="-30%" stroke-width="13" /> -->
-        <rect x="-7" y="-30%" width="14" height="38%" class="marks" opacity="0.8" />
+        <rect x="-6" y="-28%" width="12" height="36%" class="marks" opacity="0.9" />
     </g>
     <g id="minuteHand">
         <!-- <line x1="0" y1="7%" x2="0" y2="-35%" stroke-width="10" /> -->
-        <rect x="-5" y="-40%" width="10" height="48%" class="marks" opacity="0.8" />
+        <rect x="-5" y="-37%" width="8" height="45%" class="marks" opacity="0.9" />
     </g>
     <g id="secondHand">
         <!-- <line x1="0" y1="10%" x2="0" y2="-32%" stroke-width="2" id="secondLine" /> -->
-        <rect x="-2" y="-31%" width="4" height="46%" fill="#CC0000" opacity="0.8" />
-        <circle cx="0" cy="-34%" r="3%" fill="#CC0000" opacity="0.8" />
+        <rect class="aod" x="-2" y="-30% - 2" width="4" height="41% + 2" fill="#AA0000" opacity="0.9" />
+        <circle class="aod" cx="0" cy="-33%" r="10" fill="#AA0000" opacity="0.9" />
     </g>
-    <circle cx="0" cy="0" r="5" fill="#CC0000" />
+    <circle class="aod" cx="0" cy="0" r="5" fill="#AA0000" />
 
 </g>
 </svg>

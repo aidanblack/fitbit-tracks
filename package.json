@@ -32,6 +32,7 @@
     "debug": "fitbit"
   },
   "dependencies": {
+    "fitbit": "0.0.7",
     "fitbit-weather": "^0.2.3"
   }
 }
