@@ -53,13 +53,13 @@ const modes = {
 var mode = modes.Weather;
 
 function switchDarkMode() {
-    if (darkMode || (display.aodActive && display.off)) {
+    if (darkMode || (display.aodActive && !display.on)) {
+        marks.forEach((element) => {
+            element.style.fill = "#CCCCCC"
+        });
         clockFace.style.fill = "#111111";
         statsBox.style.fill = "white";
         statsBox.style.opacity = 0.1;
-        marks.forEach((element) => {
-            element.style.fill = "#FFFFF9"
-        });
     }
     else if(!darkMode && !display.aodActive && display.on) {
         clockFace.style.fill = "#FFFFF9";
@@ -83,8 +83,8 @@ if (display.aodAvailable && me.permissions.granted("access_aod")) {
 
     // respond to display change events
     display.addEventListener("change", () => {
-        switchDarkMode();
         // Is AOD inactive and the display is on?
+        switchDarkMode();
         if (!display.aodActive && display.on) {
             hrm.start();
             clock.granularity = "seconds";
@@ -95,6 +95,10 @@ if (display.aodAvailable && me.permissions.granted("access_aod")) {
             });
         }
         else {
+            marks.forEach((element) => {
+                element.style.fill = "#999999"
+            });
+    
             hrm.stop();
             clock.granularity = "minutes";
 
