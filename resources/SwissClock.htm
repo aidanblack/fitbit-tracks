@@ -1,0 +1,113 @@
+<html>
+
+<style>
+    #hourHand, #minuteHand, #secondHand {
+        filter: drop-shadow(5px 10px 5px #66666699);
+    }
+</style>
+
+<script language="javascript">
+    var Now = new Date(Date.now());
+    var clockTimer;
+
+    function SetClock() {
+        var Seconds = Now.getSeconds();
+        var Minutes = Now.getMinutes() + Seconds / 60;
+        var Hours = Now.getHours() + Minutes / 60;
+        document.getElementById("secondHand").setAttribute('transform', 'rotate(' + (Seconds * 6) + ')');
+        document.getElementById("minuteHand").setAttribute('transform', 'rotate(' + (Minutes * 6) + ')');
+        document.getElementById("hourHand").setAttribute('transform', 'rotate(' + (Hours * 30) + ')');
+        clockTimer = setTimeout(SetClock, 60000);
+    }
+</script>
+
+<body onload="SetClock()" style="background-color: black;">
+
+<div style="position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+<svg xmlns="http://www.w3.org/2000/svg" id="clock" width="336" height="336" viewBox="0,0,336,336">
+
+<defs>
+    <filter id="shadow" x="-1%" y="-1%" width="200%" height="200%">
+        <feOffset result="offOut" in="SourceAlpha" dx="12" dy="12" />
+        <feGaussianBlur result="blurOut" in="offOut" stdDeviation="10" />
+        <feBlend in="SourceGraphic" in2="blurOut" mode="darken" />
+    </filter>
+    <linearGradient id="borderGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="gray" />
+        <stop offset="100%" stop-color="silver" />
+    </linearGradient>
+    <linearGradient id="borderGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#AAAAAA" />
+        <stop offset="100%" stop-color="#666666" />
+    </linearGradient>
+</defs>
+
+<rect x="0" y="0" width="100%" height="100%" fill="black" />
+
+<g transform="translate(168 168)">
+    <circle cx="0" cy="0" r="50%" fill="white" />
+
+    <line id="hourTick" x1="0" y1="46%" x2="0" y2="33%"
+        stroke="black" stroke-width="10" />
+    <use href="#hourTick" transform="rotate(30)" />
+    <use href="#hourTick" transform="rotate(60)" />
+    <use href="#hourTick" transform="rotate(90)" />
+    <use href="#hourTick" transform="rotate(120)" />
+    <use href="#hourTick" transform="rotate(150)" />
+    <use href="#hourTick" transform="rotate(180)" />
+    <use href="#hourTick" transform="rotate(210)" />
+    <use href="#hourTick" transform="rotate(240)" />
+    <use href="#hourTick" transform="rotate(270)" />
+    <use href="#hourTick" transform="rotate(300)" />
+    <use href="#hourTick" transform="rotate(330)" />
+
+    <g id="fiveMinutes" transform="rotate(6 0 0)">
+        <line id="minuteTick" x1="0" y1="46%" x2="0" y2="42%"
+            stroke="black" stroke-width="3" />
+        <use href="#minuteTick" transform="rotate(6)" />
+        <use href="#minuteTick" transform="rotate(12)" />
+        <use href="#minuteTick" transform="rotate(18)" />
+    </g>
+    <use href="#fiveMinutes" transform="rotate(30)" />
+    <use href="#fiveMinutes" transform="rotate(60)" />
+    <use href="#fiveMinutes" transform="rotate(90)" />
+    <use href="#fiveMinutes" transform="rotate(120)" />
+    <use href="#fiveMinutes" transform="rotate(150)" />
+    <use href="#fiveMinutes" transform="rotate(180)" />
+    <use href="#fiveMinutes" transform="rotate(210)" />
+    <use href="#fiveMinutes" transform="rotate(240)" />
+    <use href="#fiveMinutes" transform="rotate(270)" />
+    <use href="#fiveMinutes" transform="rotate(300)" />
+    <use href="#fiveMinutes" transform="rotate(330)" />
+
+    <g id="hourHand">
+        <line x1="0" y1="7%" x2="0" y2="-30%"
+        stroke="black" stroke-width="13">
+        <animateTransform attributeName="transform" type="rotate" dur="43200s" values="0;360" repeatCount="indefinite" />
+    </line>
+    </g>
+    <g id="minuteHand">
+        <line x1="0" y1="7%" x2="0" y2="-35%"
+            stroke="black" stroke-width="10">
+            <animateTransform attributeName="transform" type="rotate" dur="3600s" values="0;360" repeatCount="indefinite" />
+        </line>
+    </g>
+    <g id="secondHand">
+        <line x1="0" y1="10%" x2="0" y2="-32%" stroke="#CC1111" stroke-width="2">
+            <animateTransform attributeName="transform" type="rotate" dur="60s" values="0;360" repeatCount="indefinite" />
+        </line>
+        <circle cx="0" cy="-32%" r="10" fill="#CC1111">
+            <animateTransform attributeName="transform" type="rotate" dur="60s" values="0;360" repeatCount="indefinite" />
+        </circle>
+    </g>
+    <circle cx="0" cy="0" r="5" fill="#CC1111" />
+
+    <circle filter="url(#shadow)" cx="0" cy="0" r="49%"
+        stroke="url(#borderGradient)" stroke-width="2%" fill="none" />
+    <circle filter="url(#shadow)" cx="0" cy="0" r="167"
+        stroke="url(#borderGradient2)" stroke-width="2px" fill="none" />
+</g>
+</svg>
+</div>
+</body>
+</html>
