@@ -82,8 +82,6 @@ class Face {
     }
     
     changeMode() {
-        console.log(JSON.stringify(modes));
-        
         if (this.mode === modes.Battery) {
             this.mode = modes.Weather;
             this.statsArc.style.visibility = "hidden";
@@ -129,7 +127,6 @@ class Face {
             this.weatherArc.style.visibility = "hidden";
         }
 
-        console.log(this.mode);
         this.battery.mode = `${this.mode}`;
         this.goals.mode = `${this.mode}`;
         this.weather.mode = `${this.mode}`;

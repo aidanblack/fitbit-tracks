@@ -154,7 +154,7 @@ if (BodyPresenceSensor) {
 }
 
 if (HeartRateSensor) {
-  hrm = new HeartRateSensor();
+  hrm = new HeartRateSensor({ frequency: 1 });
   hrm.start();
   hrm.addEventListener("reading", () => {
     processHeartRate();
@@ -166,18 +166,21 @@ function processBodyPresence() {
     hrm.start();
   } else {
     hrm.stop();
+    if (face.mode === modes.HeartRate) {
+      goals.currentCount = 0;
+      goals.currentGoal = 200;
+      goals.updateGoals();
+    }
   }
 }
 
 function processHeartRate() {
   if (display.on) {
     heartRate = hrm.heartRate;
-    if (me.permissions.granted("access_activity")) {
-      if (face.mode === modes.HeartRate) {
-          goals.currentCount = heartRate;
-          goals.currentGoal = 200;
-          goals.updateGoals();
-      }
+    if (face.mode === modes.HeartRate) {
+        goals.currentCount = heartRate;
+        goals.currentGoal = 200;
+        goals.updateGoals();
     }
   }
 }

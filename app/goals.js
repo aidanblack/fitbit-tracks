@@ -44,10 +44,8 @@ class Goals {
                 this.currentGoal = goals.activeZoneMinutes.total;
             }
         
-            console.log(this.mode);
-            if (this.mode != modes.Weather && this.mode != modes.Battery && this.mode != modes.HeartRate) {
+            if (this.mode != modes.Weather && this.mode != modes.Battery) {
                 var statDisplay = this.currentCount / this.currentGoal * 300;
-                console.log(`${this.currentCount} / ${this.currentGoal}`);
                 statDisplay = Math.round(statDisplay);
                 if (statDisplay > 300) statDisplay = 300;
                 this.statsArc.sweepAngle = statDisplay;
