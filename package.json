@@ -1,5 +1,5 @@
 {
-  "name": "fitbit-swiss",
+  "name": "tracks",
   "version": "0.1.0",
   "private": true,
   "license": "UNLICENSED",
@@ -10,7 +10,7 @@
   "fitbit": {
     "appUUID": "5b532c82-5211-4b7f-a0b2-a09d02f5a42e",
     "appType": "clockface",
-    "appDisplayName": "Swiss Railway",
+    "appDisplayName": "Tracks",
     "iconFile": "resources/icon.png",
     "wipeColor": "#ffffff",
     "requestedPermissions": [
