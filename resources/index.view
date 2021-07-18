@@ -88,8 +88,8 @@
     </g>
     <g id="secondHandShadow" transform="translate(8,8)">
         <!-- <line x1="0" y1="10%" x2="0" y2="-32%" stroke-width="2" id="secondLine" /> -->
-        <rect class="aod" x="-2" y="-30%" width="5" height="41% + 2" fill="black" opacity="0.1" />
-        <circle class="aod" cx="0" cy="-33%" r="10" fill="black" opacity="0.1" />
+        <rect class="aod" x="-2" y="-33%" width="5" height="44%" fill="black" opacity="0.1" />
+        <rect class="aod" x="-6" y="5%" width="12" height="10%" fill="black" opacity="0.1" />
     </g>
     <g id="hourHand">
         <!-- <line x1="0" y1="7%" x2="0" y2="-30%" stroke-width="13" /> -->
@@ -101,8 +101,8 @@
     </g>
     <g id="secondHand">
         <!-- <line x1="0" y1="10%" x2="0" y2="-32%" stroke-width="2" id="secondLine" /> -->
-        <rect class="aod" x="-2" y="-30% - 2" width="4" height="41% + 2" fill="#AA0000" opacity="0.9" />
-        <circle class="aod" cx="0" cy="-33%" r="10" fill="#AA0000" opacity="0.9" />
+        <rect class="aod" x="-2" y="-33%" width="4" height="44%" fill="#AA0000" opacity="0.9" />
+        <rect class="aod" x="-6" y="5%" width="12" height="10%" fill="#AA0000" opacity="0.9" />
     </g>
     <circle class="aod" cx="0" cy="0" r="5" fill="#AA0000" />
 
